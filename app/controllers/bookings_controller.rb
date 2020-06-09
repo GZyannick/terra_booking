@@ -2,12 +2,10 @@ class BookingsController < ApplicationController
   def new
     @planet = Planet.find(params[:planet_id])
     @booking = Booking.new
-    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    authorize @booking
     @booking.user = current_user
     @planet = Planet.find(params[:planet_id])
     @booking.planet = @planet 

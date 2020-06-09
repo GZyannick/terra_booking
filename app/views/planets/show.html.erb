@@ -15,7 +15,5 @@
                 
           <% end %>
           <hr>
-        <% if @planet.owner != current_user %>
         <%= link_to "Book this planet", new_planet_booking_path(@planet) %>
-      <% end %>
      </ul> 

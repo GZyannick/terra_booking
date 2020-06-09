@@ -3,8 +3,8 @@ class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @planets = policy_scope(Planet)
-    end
+    @planets = Planet.all
+  end
 
   def show
     @bookings = Booking.where(planet_id: params[:id])
@@ -12,12 +12,10 @@ class PlanetsController < ApplicationController
 
   def new
     @planet = Planet.new
-    authorize @planet
   end
 #TODO verifie create is working 
   def create
     @planet = Planet.new(planet_params)
-    authorize @planet
     @planet.owner = current_user
     #@planet.owner = User.find(1)
     if @planet.save!
@@ -50,7 +48,6 @@ class PlanetsController < ApplicationController
 
   def find_planet
     @planet = Planet.find(params[:id])
-    authorize @planet
   end
   def planet_params
     params.require(:planet).permit(:name , :description, :price, :photo)
