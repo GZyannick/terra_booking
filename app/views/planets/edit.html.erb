@@ -1,2 +1,9 @@
-<h1>Planets#edit</h1>
-<p>Find me in app/views/planets/edit.html.erb</p>
+<h1>Planet editor</h1>
+
+<%= simple_form_for(@planet) do |f| %>
+  <%= f.input :name, as: :string, placeholder: @planet.name %>
+  <%= f.input :description, as: :text, placeholder: @planet.description %>
+  <%= f.input :price, as: :integer, placeholder: @planet.price %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Home", planets_path %>  
