@@ -1,8 +1,7 @@
 class PlanetsController < ApplicationController
   before_action :find_planet , only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:home, :show]
-  def home
-  end
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @planets = Planet.all
   end
