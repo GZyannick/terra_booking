@@ -1,2 +1,18 @@
-<h1>Planets#show</h1>
-<p>Find me in app/views/planets/show.html.erb</p>
+
+  <h1><%= @planet.name %></h1>
+  <%= link_to "Back to home", planets_path %>
+     
+     <h3><%= @planet.description %></h3>
+     <ul>
+          <% @planet.bookings.each do |booking| %>
+           <li>
+           <%= booking.duration %> year(s)
+                
+           </li>   
+              
+                
+                
+          <% end %>
+          <hr>
+        <%= link_to "Book this planet", new_planet_booking_path(@planet) %>
+     </ul> 
