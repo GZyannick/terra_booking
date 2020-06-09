@@ -4,7 +4,7 @@ class PlanetsController < ApplicationController
   def home
   end
   def index
-    @planet = Planet.all
+    @planets = Planet.all
   end
 
   def show
@@ -45,8 +45,9 @@ class PlanetsController < ApplicationController
   end
 
   private
+
   def find_planet
-    @planet = Planet.find(:id)
+    @planet = Planet.find(params[:id])
   end
   def planet_params
     params.require(:planet).permit(:name , :description, :price)

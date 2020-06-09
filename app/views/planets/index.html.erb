@@ -6,8 +6,8 @@
     <li><%= "#{planet.name}" %></li>
     <li><%= "#{planet.price}" %>€</li>
              
-    <%= link_to "Show",  planet_path(planet.id) %> <%= link_to "show", planets_path(planet.id) %>
-    <%= link_to "Edit",  planet_path(planet.id) %> <%= link_to "Edit", edit_planet_path(planet.id) %>
-    <%= link_to "Delete",  planet_path(planet.id) %> <%= link_to "Delete", planet_path(planet.id) %>
+    <%= link_to "Show",  planet_path(planet) %> 
+    <%= link_to "Edit",  planet_path(planet) %> 
+    <%= link_to "Delete",  planet_path(planet) %> 
   </ul>
 <% end %>
