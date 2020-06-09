@@ -1,5 +1,5 @@
 class PlanetsController < ApplicationController
-  before_action :find_planet , only: [:show, :edit, :create, :destroy]
+  before_action :find_planet , only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:home, :show]
   def home
   end
@@ -8,6 +8,7 @@ class PlanetsController < ApplicationController
   end
 
   def show
+    @bookings = Booking.where(planet_id: params[:id])
   end
 
   def new
@@ -29,7 +30,7 @@ class PlanetsController < ApplicationController
   end
 
   def update
-    if planet.update!(planet_params)
+    if @planet.update!(planet_params)
       redirect_to planet_path(@planet), notice: 'This planet was successfully updated!'
     else
       render :edit
@@ -37,7 +38,7 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
-    if @planet.destroy!
+    if @planet.destroy
       redirect_to planets_path, notice: 'This planet was successfully deleted!'
     else
       redirect_to planet_path(@planet), notice: "Sorry, we need to reload our destroying machine..."

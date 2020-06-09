@@ -1,14 +1,17 @@
 class BookingsController < ApplicationController
   def new
+    @planet = Planet.find(params[:planet_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @planet = Planet.find(params[:planet_id])
+    @booking.planet = @planet 
     #@planet.owner = User.find(1)
     if @booking.save!
-      redirect_to user_path(@booking.user), notice: "Congrats! You have successfully booked this planet!"
+      redirect_to planet_path(@planet), notice: "Congrats! You have successfully booked this planet!"
     else
       render :new
     end
