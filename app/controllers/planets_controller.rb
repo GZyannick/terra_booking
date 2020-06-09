@@ -50,6 +50,6 @@ class PlanetsController < ApplicationController
     @planet = Planet.find(params[:id])
   end
   def planet_params
-    params.require(:planet).permit(:name , :description, :price)
+    params.require(:planet).permit(:name , :description, :price, :photo)
   end
 end
