@@ -1,26 +1,6 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/destroy'
-  get 'bookings/show'
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/edit'
-  get 'bookings/update'
-  get 'bookings/destroy'
-  get 'users/show'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update'
-  get 'planets/index'
-  get 'planets/show'
-  get 'planets/new'
-  get 'planets/create'
-  get 'planets/edit'
-  get 'planets/update'
-  get 'planets/destroy'
   devise_for :users
   root to: 'pages#home'
+  resources :planets
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

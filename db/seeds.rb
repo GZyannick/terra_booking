@@ -3,15 +3,15 @@ User.destroy_all
 
 
 
-alpha = User.create(username: "AlPha", email: "planet@saturne.st", password: "azerty" , first_name: 'Al', last_name: 'Pha')
+alpha = User.create(username: "AlPha", email: "planet@saturne.st", password: "azerty")
 
 
-blob = User.create(username: "BlobloBg", email: "planet@mars.ms", password: "azerty" , first_name: 'blo', last_name: 'B')
+blob = User.create(username: "BlobloBg", email: "planet@mars.ms", password: "azerty")
 
-spock = User.create(username: "Spock", email: "spock@vulcain.vm", password: "azerty" , first_name: 'spo', last_name: 'ck')
+spock = User.create(username: "Spock", email: "spock@vulcain.vm", password: "azerty")
 
 
-superman = User.create(username: "Superman", email: "clark@terre.tr", password: "azerty" , first_name: 'Clark', last_name: 'kent')
+superman = User.create(username: "Superman", email: "clark@terre.tr", password: "azerty" )
 
 
 saturne = Planet.create(owner: alpha, name: "saturne", description: "planete non tellurique , belle vue sur la terre")
