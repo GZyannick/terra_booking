@@ -1,7 +1,8 @@
 
   <h1><%= @planet.name %></h1>
   <%= link_to "Back to home", planets_path %>
-     
+     <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill %>
+
      <h3><%= @planet.description %></h3>
      <ul>
           <% @bookings.each do |booking| %>
