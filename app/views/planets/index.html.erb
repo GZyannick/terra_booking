@@ -1,2 +1,13 @@
-<h1>Planets#index</h1>
-<p>Find me in app/views/planets/index.html.erb</p>
+<h1>Choose your planet</h1>
+
+<% @planets.each do |planet| %>
+  
+  <ul>              
+    <li><%= "#{planet.name}" %></li>
+    <li><%= "#{planet.price}" %></li>
+             
+    <%= link_to "Show",  planet_path(planet.id) %> <%= link_to "show", planets_path(planet.id) %>
+    <%= link_to "Edit",  planet_path(planet.id) %> <%= link_to "Edit", edit_planet_path(planet.id) %>
+    <%= link_to "Delete",  planet_path(planet.id) %> <%= link_to "Delete", planet_path(planet.id) %>
+  </ul>
+<% end %>
