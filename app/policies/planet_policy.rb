@@ -1,7 +1,7 @@
 class PlanetPolicy < ApplicationPolicy
  def show?
     true
-  end 
+  end
 
   def create?
     true
@@ -18,9 +18,9 @@ class PlanetPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       # if user.admin?
-        scope.all
+        # scope.all
       # else
-        scope.where(owner_id: user.id)
+        scope.where(owner: user)
       end
     end
 
