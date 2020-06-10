@@ -20,8 +20,8 @@ class PlanetPolicy < ApplicationPolicy
       # if user.admin?
         scope.all
       # else
-        scope.where(owner_id: user.id)
-      end
+        # scope.where(owner_id: user.id)
+      #end
     end
 
     private
@@ -29,4 +29,5 @@ class PlanetPolicy < ApplicationPolicy
     def owner?
       record.owner_id == user.id
     end
+end
 end
