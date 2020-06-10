@@ -12,26 +12,17 @@ class PlanetPolicy < ApplicationPolicy
   end
 
   def update?
-    owner?
+     record.owner_id == user.id
   end
 
   def destroy?
-    owner?
+     record.owner_id == user.id
   end
 
   class Scope < Scope
     def resolve
-      # if user.admin?
-        scope.all
-      # else
-        # scope.where(owner_id: user.id)
-      #end
-    end
-
-    private
-
-    def owner?
-      record.owner_id == user.id
+      scope.all
     end
 end
 end
+
