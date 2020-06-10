@@ -4,7 +4,7 @@ class PlanetsController < ApplicationController
 
   def index
     @planets = policy_scope(Planet)
-    end
+  end
 
   def show
     @bookings = Booking.where(planet_id: params[:id])

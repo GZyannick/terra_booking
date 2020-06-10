@@ -1,7 +1,11 @@
 class PlanetPolicy < ApplicationPolicy
- def show?
+  def index?
     true
-  end 
+  end
+ 
+  def show?
+    true
+  end
 
   def create?
     true
