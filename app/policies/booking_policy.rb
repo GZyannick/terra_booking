@@ -11,6 +11,6 @@ class BookingPolicy < ApplicationPolicy
   end
   private
   def owner?
-      record.owner_id == user.id
+     # record.owner_id == user.id
   end
 end

@@ -1,5 +1,9 @@
 class PlanetPolicy < ApplicationPolicy
- def show?
+  def index?
+    true
+  end
+ 
+  def show?
     true
   end
 
@@ -18,9 +22,9 @@ class PlanetPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       # if user.admin?
-        # scope.all
+        scope.all
       # else
-        scope.where(owner: user)
+       # scope.where(owner: user)
       end
     end
 
