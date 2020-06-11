@@ -1,7 +1,15 @@
 body {
-  background-image: url(asset-path("space"));
+  background-image: url(asset-path("white-space-ship-and-brown-planet-586030"));
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
+.navbar{
+  position: absolute;
+  top: 0px;
+}
+.btn-secondary{
+  background: rgba(33, 254, 146, 0.67);;
+}
 .form-inputs {
   color: #fff;
   margin: 0 auto;

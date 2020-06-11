@@ -1,4 +1,18 @@
-
+<div class="navbar">
+  <div class="navbar-brand">
+    <img id = "alien" src= <%= asset_path "alien.png"%>/>
+  </div>
+  <div class="navtext">
+  <%= link_to 'Terra Booking', root_path, class: "terra-title" %>
+    <%# <p class="terra-title">Terra Booking</p> %>
+    <% unless user_signed_in? %>
+      <%= link_to 'Log in', new_user_session_path, id: "Login"  %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% else %>
+      <%= link_to 'Log out', destroy_user_session_path , method: :delete %>
+    <% end %>
+  </div>
+</div>
 <div class="form-inputs">
     <h2>Sign up</h2>
 
