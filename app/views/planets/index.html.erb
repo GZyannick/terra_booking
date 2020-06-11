@@ -1,24 +1,38 @@
-<h1>Choose your planet</h1>
-<% unless user_signed_in? %>
-  <%= link_to 'sign in', new_user_session_path %>
-<%= link_to 'sign up', new_user_registration_path %>
-<% else %>
-<%= link_to 'log out', destroy_user_session_path , method: :delete %>
-
-<% end %>
+<div class="navbar">
+  <div class="navbar-brand">
+    <img id = "alien" src= <%= asset_path "alien.png"%>/>
+  </div>
+  <div class="navtext">
+  <%= link_to 'Terra Booking', planets_path, class: "terra-title" %>
+    <%# <p class="terra-title">Terra Booking</p> %>
+    <% unless user_signed_in? %>
+      <%= link_to 'Log in', new_user_session_path, id: "Login"  %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% else %>
+      <%= link_to 'Log out', destroy_user_session_path , method: :delete %>
+    <% end %>
+  </div>
+</div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "white-space-ship-and-brown-planet-586030.jpg"%>);">
+  <div class="container">
+    <h1><strong>Book a planet</strong></h1>
+    <h2>and start your journey</h2>
+    <%= link_to 'Launch now', new_user_registration_path %>
+  </div>
+</div>
 
 
 <% @planets.each do |planet| %>
-  
-  <ul>              
+
+  <ul>
     <li><%= "#{planet.name}" %></li>
     <li><%= "#{planet.price}" %>€</li>
-             
+
     <%= link_to "Show",  planet_path(planet) %>
     <%  if current_user && current_user.id == planet.owner.id %>
 
-      <%= link_to "Edit",  edit_planet_path(planet) %> 
-      <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %> 
+      <%= link_to "Edit",  edit_planet_path(planet) %>
+      <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %>
   <% end %>
   </ul>
 <% end %>
