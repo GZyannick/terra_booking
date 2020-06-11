@@ -1,12 +1,26 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  background: #538A7A;
+  font-family: Arial;
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+  }
+  .navtext {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-grow: 1;
+  }
 }
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.terra-title{
+  flex-grow: 1;
 }
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+  #alien {
+    border-radius: 50%;
+    width: 50px;
+  }
