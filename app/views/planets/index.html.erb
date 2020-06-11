@@ -1,25 +1,65 @@
-<h1>Choose your planet</h1>
-<% unless user_signed_in? %>
-  <%= link_to 'sign in', new_user_session_path %>
-<%= link_to 'sign up', new_user_registration_path %>
-<% else %>
-<%= link_to 'log out', destroy_user_session_path , method: :delete %>
-
-<% end %>
-
-
-<% @planets.each do |planet| %>
+<h1 class='logo'>
+  Solar explorer
+  <span>Add new planet</span>
+</h1>
   
-  <ul>              
-    <li><%= "#{planet.name}" %></li>
-    <li><%= "#{planet.price}" %>€</li>
-             
-    <%= link_to "Show",  planet_path(planet) %>
-    <%  if current_user && current_user.id == planet.owner.id %>
-
-      <%= link_to "Edit",  edit_planet_path(planet) %> 
-      <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %> 
+<% @planets.reverse.each  do |planet|%>
+  <% if @i == 1 %>
+    <input checked='checked' class="planet<%="#{@i}"%>" id="<%="#{planet.name}"%>"name='planet' type='radio'>
+  <% else %>
+      <input class="planet<%="#{@i}"%>" id="<%="#{planet.name}"%>"name='planet' type='radio'>
   <% end %>
-  </ul>
+     <label class='menu' for="<%="#{planet.name}"%>">
+      <h2>
+      <div class='pip'></div>
+      <%="#{planet.name}"%>
+    </h2>
+    <h3><%="#{planet.price}"%></h3>
+    </label>
+  <%@i -= 1 %>
 <% end %>
-  <%= link_to 'new planet', new_planet_path if user_signed_in? %>
+
+<div class='solar'>
+<% @planets.each_with_index  do |planet, index|%>
+    <div class='solar_systm'>
+    <div class="planet <%="#{planet.name}"%>">
+    <div class="<%="planet_description #{planet.name}" %>">
+        <h1><%= "#{planet.name}" %></h1>
+      <div class="show-planet">
+      <div class="edit-delete">
+        <%= link_to "Show",  planet_path(planet)%>
+              <%  if current_user && current_user.id == planet.owner.id %>
+            <%= link_to "Edit",  edit_planet_path(planet) %>
+            <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %>
+            <% end %>
+      </div>
+      </div>
+      <div class="planet_div"></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+  <%= link_to 'new planet', new_planet_path , class: "new_planet" %>
+
+
+
+
+<!-- 
+mercury = https://www.solarsystemscope.com/images/textures/full/2k_makemake_fictional.jpg
+
+venus = https://nasa3d.arc.nasa.gov/shared_assets/images/ven0aaa2/ven0aaa2-copy-428-321.jpg
+
+earth = https://img00.deviantart.net/04ef/i/2009/114/3/e/new_earth_texture_map_by_lightondesigns.jpg
+
+mars = https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mars_texture.jpg
+
+jupiter = https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA07782_hires.jpg
+saturne = https://www.solarsystemscope.com/images/textures/full/2k_saturn.jpg
+
+uranus = https://img00.deviantart.net/957c/i/2017/165/4/9/uranus_texture_map_by_jcpag2010-db7yjwb.png
+
+neptune = https://img00.deviantart.net/f068/i/2017/165/b/c/neptune_texture_map_by_jcpag2010-dbcjcv5.png
+
+pluto = https://pre00.deviantart.net/4677/th/pre/f/2015/314/4/e/pluto_map__2015_nov_10__by_snowfall_the_cat-d918tlb.png
+-->
