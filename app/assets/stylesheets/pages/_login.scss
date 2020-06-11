@@ -1,5 +1,5 @@
 body {
-  background-image: url(asset-path("space.jpg"));
+  background-image: url(asset-path("space"));
 }
 
 .form-inputs {
@@ -25,4 +25,12 @@ body {
    color: #fff;
   }
 
+}
+
+.boutons_log{
+  display: flex;
+  justify-content: space-between;
+  a{
+    margin-left: 5px;
+  }
 }
