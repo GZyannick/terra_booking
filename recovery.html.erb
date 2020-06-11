@@ -23,3 +23,46 @@
   </ul>
 <% end %>
   <%= link_to 'new planet', new_planet_path if user_signed_in? %>
+
+
+
+
+
+
+
+
+
+
+# Recorevy V2
+
+
+
+
+
+
+
+  <% @planets.each_with_index do |planet, index| %>
+<input class="<%="planet#{index + 1}" %>" id="<%=planet.name%>" name='planet' type='radio'>
+<label class="<%="#{planet.name} menu" %>" for="<%=planet.name%>">
+  <div class='info'>
+    <h2>
+      <div class='pip'></div>
+      <%= "#{planet.name}" %>
+    </h2>
+    <h3><%= "#{planet.price}" %>€</h3>
+  </div>
+</label>
+
+  <div class='solar_systm'>
+    <div class="<%="planet #{planet.name}" %>">
+      <div class="<%="planet_description #{planet.name}" %>">
+        <h1><%= "#{planet.name}" %></h1>
+      </div>
+      <div class='overlay'></div>
+    </div>
+  </div>
+  <% end %>
+
+  <style>
+    
+  </style>

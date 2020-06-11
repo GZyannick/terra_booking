@@ -1,0 +1,43 @@
+
+.planet {
+    height: 1200px;
+    width: 1200px;
+    border-radius: 1200px / 2;
+    background: red;
+
+    transition: transform 2.8s .23s cubic-bezier(0.33, 0, 0, 1), opacity 2s .8s, box-shadow 0s 0s; //
+    background-size: 1140px 910px !important;
+
+    //cubic-bezier(0.33, 0, 0, 1)
+    top: auto;
+    bottom: - 1200px + 280;
+    @keyframes planet {
+        from {background-position-y: 0px;}
+        to {background-position-y: -1000px;}
+    }
+}
+
+
+input[type="radio"][name="planet"].planet2:checked + label + input + label + div .solar_systm:nth-of-type(2) .planet_description {
+    opacity: 1;
+    -webkit-transition: all .6s 2.6s;
+    transition: all .6s 2.6s;
+}
+ .solar_systm:nth-of-type(2) .planet_description {
+    opacity: 1;
+}
+.solar_systm .planet_description {
+    width: 620px;
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    z-index: 2;
+    right: 0;
+    color: white;
+    font-weight: 100;
+    -webkit-transition: all .4s 0s;
+    transition: all .4s 0s;
+    text-transform: uppercase;
+    z-index: 1;
+}

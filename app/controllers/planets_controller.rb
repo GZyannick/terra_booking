@@ -4,6 +4,7 @@ class PlanetsController < ApplicationController
 
   def index
     @planets = policy_scope(Planet)
+    @i = @planets.count
   end
 
   def show
