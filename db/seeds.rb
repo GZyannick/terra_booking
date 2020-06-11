@@ -22,6 +22,7 @@ end
 saturne = Planet.create(owner: alpha, name: "saturne", price: 1, description: "planete non tellurique , belle vue sur la terre")
 mars = Planet.create(owner: spock, name: "mars", price: 1,description: "belle vue sur saturne")
 vulcain = Planet.create(owner: spock, name: "vulcain", price: 1,description: "pas de belle vue , venez comme vous etes")
+alpha = Planet.create(owner: alpha, name: "cucu", price: 1, description: "planete non tellurique , belle vue sur la terre")
 
 #5.times do
 #  Planet.create(

@@ -57,10 +57,9 @@ $traverseTriggers: "";
   }
 }
 
-body {
+    .planets-index {
     overflow: hidden;
     background: black;
-    height: 100vh;
     font-family: 'Montserrat', sans-serif;
     .logo {
         color: white;
@@ -339,6 +338,15 @@ body {
     .show-planet{
         position: absolute;
         top: -250px;
+    }
+    .new_planet{
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+    }
+    .edit-delete{
+        position: absolute;
         left: 280px;
+        top: 20px;
     }
 }

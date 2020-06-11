@@ -3,7 +3,6 @@
   <span>Add new planet</span>
 </h1>
   
-
 <% @planets.reverse.each  do |planet|%>
   <% if @i == 1 %>
     <input checked='checked' class="planet<%="#{@i}"%>" id="<%="#{planet.name}"%>"name='planet' type='radio'>
@@ -26,13 +25,23 @@
     <div class="planet <%="#{planet.name}"%>">
     <div class="<%="planet_description #{planet.name}" %>">
         <h1><%= "#{planet.name}" %></h1>
-        <%= link_to "Show",  planet_path(planet), class: "show-planet"%>
+      <div class="show-planet">
+      <div class="edit-delete">
+        <%= link_to "Show",  planet_path(planet)%>
+              <%  if current_user && current_user.id == planet.owner.id %>
+            <%= link_to "Edit",  edit_planet_path(planet) %>
+            <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %>
+            <% end %>
+      </div>
+      </div>
       <div class="planet_div"></div>
       </div>
     </div>
   </div>
 <% end %>
 </div>
+  <%= link_to 'new planet', new_planet_path , class: "new_planet" %>
+
 
 
 
