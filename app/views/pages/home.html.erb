@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="navbar">
+  <div class="navbar-brand">
+    <img id = "alien" src= <%= asset_path "alien.png"%>/>
+  </div>
+  <div class="navtext">
+  <%= link_to 'Terra Booking', planets_path, class: "terra-title" %>
+    <%# <p class="terra-title">Terra Booking</p> %>
+    <% unless user_signed_in? %>
+      <%= link_to 'Log in', new_user_session_path, id: "Login"  %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% else %>
+      <%= link_to 'Log out', destroy_user_session_path , method: :delete %>
+    <% end %>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "white-space-ship-and-brown-planet-586030.jpg"%>);">
+  <div class="container">
+    <h1><strong>Book a planet</strong></h1>
+    <h2>and start your journey</h2>
+    <%= link_to 'Launch now', planets_path, id: "Launchnow" %>
+  </div>
+</div>

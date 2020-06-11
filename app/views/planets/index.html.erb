@@ -3,7 +3,7 @@
     <img id = "alien" src= <%= asset_path "alien.png"%>/>
   </div>
   <div class="navtext">
-  <%= link_to 'Terra Booking', planets_path, class: "terra-title" %>
+  <%= link_to 'Terra Booking', root_path, class: "terra-title" %>
     <%# <p class="terra-title">Terra Booking</p> %>
     <% unless user_signed_in? %>
       <%= link_to 'Log in', new_user_session_path, id: "Login"  %>
@@ -13,19 +13,6 @@
     <% end %>
   </div>
 </div>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "white-space-ship-and-brown-planet-586030.jpg"%>);">
-  <div class="container">
-    <h1><strong>Book a planet</strong></h1>
-    <h2>and start your journey</h2>
-    <%= link_to 'Launch now', new_user_registration_path, id: "Launchnow" %>
-  </div>
-</div>
-
-<h1 class='logo'>
-  Solar explorer
-  <span>Add new planet</span>
-</h1>
   
 <% @planets.reverse.each  do |planet|%>
   <% if @i == 1 %>
