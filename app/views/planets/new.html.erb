@@ -1,12 +1,18 @@
-<h1>Planets#new</h1>
-<p>Find me in app/views/planets/new.html.erb</p>
 
-
+<div class="container" style="padding-top: 20vh;">
+<h1 style="color: white; font-weight: bold;">Add a new planet</h1>
+<div class="card">
 <%= simple_form_for(@planet) do |f| %>
   <%= f.input :name, as: :string %>
   <%= f.input :description, as: :text %>
   <%= f.input :price, as: :integer %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
-<%= link_to "Home", planets_path %>  
+<div class="signup">
+    <div class="growing">
+      <%= f.button :submit, "Sign up", class: 'btn btn-secondary' %>
+    </div>
+    <% end %>
+      <%= link_to "Home", planets_path, class: 'btn btn-secondary' %>  
+    </div>
+  </div>
+</div>

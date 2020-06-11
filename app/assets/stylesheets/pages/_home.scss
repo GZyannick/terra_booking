@@ -90,7 +90,7 @@ $traverseTriggers: "";
         z-index: 2;
 
         &:after {
-            display: block;
+            display: none;
             width: 12px;
             height: 12px;
             border: 2px solid white;
@@ -137,26 +137,15 @@ $traverseTriggers: "";
         }
 
         h2 {
-            font-size: 11px;
+            font-size: 16px;
             opacity: 0.4;
             margin-bottom: 4px;
-
-
-            & .pip {
-                width: 0;
-                height: 9px;
-                background: #fea082;
-                float: left;
-                position: relative;
-                top: 3px;
-                transition: all 0.3s;
-                //transform: skew(-10deg);
-                margin-right: 0px;
-            }
+            font-weight: bold;
         }
 
         h3 {
-            font-size: 8px;
+            margin-bottom: 5px ;
+            font-size: 16px;
             letter-spacing: 1px;
             transition: all 0.3s;
             opacity: 0.3;
@@ -352,5 +341,9 @@ $traverseTriggers: "";
     .navbar{
         position: absolute;
         width: 100%;
+    }
+    .new-green-btn{
+        color: #538a7a;
+        font-weight: bold;
     }
 }

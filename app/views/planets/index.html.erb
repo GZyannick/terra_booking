@@ -38,10 +38,10 @@
         <h1><%= "#{planet.name}" %></h1>
       <div class="show-planet">
       <div class="edit-delete">
-        <%= link_to "Show",  planet_path(planet)%>
+        <%= link_to "Show",  planet_path(planet), class: "new-green-btn"%>
               <%  if current_user && current_user.id == planet.owner.id %>
-            <%= link_to "Edit",  edit_planet_path(planet) %>
-            <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %>
+            <%= link_to "Edit",  edit_planet_path(planet), class: "new-green-btn" %>
+            <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" }, class: "new-green-btn"%>
             <% end %>
       </div>
       </div>
@@ -51,7 +51,7 @@
   </div>
 <% end %>
 </div>
-  <%= link_to 'new planet', new_planet_path , class: "new_planet" %>
+  <%= link_to 'Add a new planet', new_planet_path , class: "new_planet new-green-btn" %>
 
 
 

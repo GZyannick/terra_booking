@@ -1,9 +1,16 @@
-<h1>Planet editor</h1>
-
-<%= simple_form_for(@planet) do |f| %>
+<div class="container"style= "padding-top: 20vh;" >
+<h1 style="color: white; font-weight: bold;">Planet editor</h1>
+  <div class="card" >
+  <%= simple_form_for(@planet) do |f| %>
   <%= f.input :name, as: :string, placeholder: @planet.name %>
   <%= f.input :description, as: :text, placeholder: @planet.description %>
   <%= f.input :price, as: :integer, placeholder: @planet.price %>
-  <%= f.submit %>
-<% end %>
-<%= link_to "Home", planets_path %>  
+<div class="signup">
+    <div class="growing">
+      <%= f.button :submit, "Sign up", class: 'btn btn-secondary' %>
+    </div>
+    <% end %>
+      <%= link_to "Home", planets_path, class: 'btn btn-secondary' %>  
+    </div>
+  </div>
+</div>
