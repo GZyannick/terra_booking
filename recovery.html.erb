@@ -1,0 +1,68 @@
+<h1>Choose your planet</h1>
+<% unless user_signed_in? %>
+  <%= link_to 'sign in', new_user_session_path %>
+<%= link_to 'sign up', new_user_registration_path %>
+<% else %>
+<%= link_to 'log out', destroy_user_session_path , method: :delete %>
+
+<% end %>
+
+
+<% @planets.each do |planet| %>
+  
+  <ul>              
+    <li><%= "#{planet.name}" %></li>
+    <li><%= "#{planet.price}" %>€</li>
+             
+    <%= link_to "Show",  planet_path(planet) %>
+    <%  if current_user && current_user.id == planet.owner.id %>
+
+      <%= link_to "Edit",  edit_planet_path(planet) %> 
+      <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" } %> 
+  <% end %>
+  </ul>
+<% end %>
+  <%= link_to 'new planet', new_planet_path if user_signed_in? %>
+
+
+
+
+
+
+
+
+
+
+# Recorevy V2
+
+
+
+
+
+
+
+  <% @planets.each_with_index do |planet, index| %>
+<input class="<%="planet#{index + 1}" %>" id="<%=planet.name%>" name='planet' type='radio'>
+<label class="<%="#{planet.name} menu" %>" for="<%=planet.name%>">
+  <div class='info'>
+    <h2>
+      <div class='pip'></div>
+      <%= "#{planet.name}" %>
+    </h2>
+    <h3><%= "#{planet.price}" %>€</h3>
+  </div>
+</label>
+
+  <div class='solar_systm'>
+    <div class="<%="planet #{planet.name}" %>">
+      <div class="<%="planet_description #{planet.name}" %>">
+        <h1><%= "#{planet.name}" %></h1>
+      </div>
+      <div class='overlay'></div>
+    </div>
+  </div>
+  <% end %>
+
+  <style>
+    
+  </style>

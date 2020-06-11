@@ -1,1 +1,352 @@
 // Specific CSS for your home-page
+$planetCount: 9;
+$planetSize: 1200px; // Size of each planet
+$planetSpacing: 2300px; // Space between each planet
+$planetTransitionSpeed: 2s;
+$mainPlanetViewAmount: 280; // Less means we see more of the planet at the bottom
+$globalPerspective: 800px;
+$sceneAxisTilt: -20deg;
+$menuSpacing: 14px;
+$traverse: "";
+$traverseTriggers: "";
+
+
+// ceci gere lanimation
+%absPosition {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+}
+
+//CECI GERE LA PLANET UNE DERRIERE LES AUTRE 
+%viewPort {
+    position: absolute;
+    transform: rotatex($sceneAxisTilt);
+    perspective: $globalPerspective;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+
+%checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 20px;
+  left: 43px;
+  z-index: 2;
+
+  &:checked {
+    &::before {
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: white;
+      position: relative;
+      top: 3px;
+      left: 3px;
+      content: "";
+      border-radius: 10px;
+    }
+  }
+}
+
+    .planets-index {
+    overflow: hidden;
+    background: black;
+    font-family: 'Montserrat', sans-serif;
+    .logo {
+        color: white;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 100;
+        letter-spacing: 4px;
+        span  {
+            font-size: 12px;
+            color: #f39041;
+            display: block;
+        }
+    }
+
+        // CECI GERE LA      DES PLANET A GAUCHE
+    label.menu {
+        color: white;
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        left: 90px;
+        z-index: 2;
+
+        &:after {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid white;
+            border-radius: 60px;
+            content: '';
+            z-index: 2;
+            position: absolute;
+            top: -4px;
+            left:-4px;
+        }
+
+        &:hover {
+            h2,h3 {
+                opacity: 1;
+            }
+        }
+
+        & .preview {
+            width: 30px;
+            height: 30px;
+            background: yellow;
+            float: left;
+            background-size: auto 100% !important;
+            position: absolute;
+            border-radius: 100px;
+            //border: 2px solid white;
+            box-shadow: 0 -13px 10px 2px black inset;
+        }
+
+        & .info {
+            position: relative;
+            left: 50px;
+            top:1px;
+        }
+
+
+        h2,
+        h3 {
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 100;
+            letter-spacing: 2px;
+
+        }
+
+        h2 {
+            font-size: 11px;
+            opacity: 0.4;
+            margin-bottom: 4px;
+
+
+            & .pip {
+                width: 0;
+                height: 9px;
+                background: #fea082;
+                float: left;
+                position: relative;
+                top: 3px;
+                transition: all 0.3s;
+                //transform: skew(-10deg);
+                margin-right: 0px;
+            }
+        }
+
+        h3 {
+            font-size: 8px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            opacity: 0.3;
+        }
+
+        @for $l from 1 through $planetCount {
+            &:nth-of-type(#{$l}) {
+                // Caluclate middle and distribute evenly
+                $labelSize: 34px;
+                $labelSpacing: $menuSpacing;
+                $totalHeight: ($labelSize * $planetCount) + ($labelSpacing * ($planetCount)) / 2;
+
+                top: calc(50vh + 100px + ((#{$labelSpacing} + #{$labelSize}) * #{$l}) + 0px - #{$totalHeight});   
+            }
+        }
+    }
+
+
+
+    & .read:checked + label + input + .panel {
+        right: 0;
+    }
+
+    & .read:checked + label {
+        width: calc(100% - 420px);
+
+        &::after {
+            opacity: 1;
+            left: 0;
+        }
+
+
+    }
+
+    & .read:checked + label + label {
+        transition: all 0.3s .6s;
+        opacity: 1;
+    }
+
+    & .read:not(:checked) + label + label {
+        transition: all 0.3s 0s;
+        opacity: 0;
+    }
+   
+    & .overlay {
+        //@extend %absPosition;
+        border-bottom: 1020px solid black;
+        width: 1800px;
+        height: 620px;
+        top: auto;
+        -webkit-transform: none;
+        transform: none;
+        top: -240px;
+        left: -303px;
+        opacity: 1;
+        border-radius: 100%;
+        z-index: 0;
+        //transition: all .95s .2s;
+        box-shadow: 0px -190px 215px 110px black inset;
+
+    }
+        //CECI ET LA PLUS IMPORTANT
+    @for $a from 1 through $planetCount {
+
+        $traverse: $traverse + " input + label +";
+        $traverseTriggers: $traverseTriggers + " input + label +";
+
+        @if ($a == 1) {
+            $traverseTriggers: "label +";
+        } 
+
+        @if ($a == 2) {
+            $traverseTriggers: "label +";
+        } 
+
+        @if($a == 1) {
+            $traverse: "label +";
+        }
+
+        input[type="radio"][name="planet"] {
+            appearance: none;
+            &::after {
+                content: '';
+            }
+            &.planet#{$a}:checked {
+                &::after {
+                    display: none;
+                }
+                $input: "";
+                @for $b from 1 through $a {
+                    $input: $input + "+label + input";
+                    & #{$input}::after {
+                        display: none;
+                    }
+                }
+                & + #{$traverse} div {
+                    & .solar_systm {
+                        //CECI GERE LANIMATION DES PLANET
+                        @for $i from 1 through $planetCount {
+                            &:nth-of-type(#{$i}) .planet {
+                       
+                                $translateY: 0;
+                                $translateZ: - $planetSpacing * ($i - 1) + ($planetSpacing * ($a - 1));
+                                $rotateX: 4deg;
+                                $scaleOffset: 0.89;
+                                $opacity: 2 - ($i - 1) + ($a - 1);
+                                transform: translateZ($translateZ) translateY($translateY) rotatex($rotateX) scaleX($scaleOffset);
+                                opacity: $opacity;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    .solar {
+        @extend %viewPort;
+
+        &_systm {
+
+            // CECI ET LE TEXT QUI MONTE ET DESCENT
+            @for $i from 1 through 10 {
+                &:nth-of-type(#{$i}) {
+                    & .planet {
+
+                        // CECI GERE LA HAUTEUR DU TEXT
+                        &_description {
+                            opacity: 1;
+                            //top: 50px;
+
+                            p,a {
+                                opacity: 1;
+                            }
+
+                            h1,h2 {
+                                position: relative;
+                                top: -330px;
+                                transition: all .5s 0s;
+                            }
+
+                        }
+                    }
+                }
+            }
+              // CECI ET LE TEXT QUI MONTE ET DESCENT
+            & .planet {
+                //CECI FAIT QUE LES PLANET SONT BIEN PLACER
+                @extend %absPosition;
+                //CECI FAIT QUE LES PLANET SONT BIEN PLACER
+            }
+        }
+    }
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*
+.planet_photo{
+    border-radius: 100%;
+}
+.planet{
+  background: black;
+}
+
+.planet_description { 
+    p::after{
+        opacity: 1;
+        color: white;
+        z-index: 50;
+    }
+    .planet_div {
+    position: absolute;
+    width: 70rem;
+    height: 50rem;
+    left: -300px;
+    top: -20px;
+    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%,rgba(0,0,0,1)100%) , url("https://www.solarsystemscope.com/images/textures/full/2k_makemake_fictional.jpg");
+    border-radius: 100%;
+    }
+    }
+    .show-planet{
+        position: absolute;
+        top: -250px;
+    }
+    .new_planet{
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+    }
+    .edit-delete{
+        position: absolute;
+        left: 280px;
+        top: 20px;
+    }
+}
