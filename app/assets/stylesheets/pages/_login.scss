@@ -1,0 +1,28 @@
+body {
+  background-image: url(asset-path("space.jpg"));
+}
+
+.form-inputs {
+  color: #fff;
+  margin: 0 auto;
+  max-width: 900px;
+  margin-top: 25vh;
+  position: relative;
+  a {
+    color: #fff;
+  }
+  }
+
+.signup {
+
+  display: flex;
+
+  text-color: red;
+
+  .growing {
+   flex-grow: 1;
+   // text-align: left;
+   color: #fff;
+  }
+
+}
