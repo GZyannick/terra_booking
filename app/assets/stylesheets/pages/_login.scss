@@ -2,7 +2,16 @@ body {
   background-image: url(asset-path("white-space-ship-and-brown-planet-586030"));
   background-size: cover;
   background-repeat: no-repeat;
+  h2{
+    font-weight: bold;
+  }
 }
+.card{
+  background: rgba(255,255,255,0.3);
+  padding: 50px;
+  border-radius: 16px;
+}
+
 .navbar{
   position: absolute;
   top: 0px;
