@@ -1,5 +1,8 @@
 .navbar {
   display: flex;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
   justify-content: flex-start;
   color: white;
   background: #538A7A;
