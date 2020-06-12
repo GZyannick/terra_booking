@@ -17,15 +17,25 @@
   </div>
 
   <div class="content-bas">
+  <% @years = 2020 %>
     <% @bookings.each do |booking| %> 
-      <%= booking.duration %> year(s)
+      <% @years += booking.duration.to_i %>
     <% end %>
+    <h3><%= "You can book this planet from #{@years}" %></h3>
     <hr>
 
-    <%= link_to "Back to home", planets_path, class: 'btn btn-secondary' %>
-  
+    <%= link_to, planets_path do %>
+    <% image_tag ""%>
+    <% %>
     <% if @planet.owner != current_user && user_signed_in?%>
       <%= link_to "Book this planet", new_planet_booking_path(@planet), class: 'btn btn-secondary' %>
     <% end %>
   </div>  
 </div>
+
+<!-- 
+space = https://fontawesome.com/icons/space-shuttle?style=solid
+home = https://fontawesome.com/icons/home?style=solid
+trash = https://fontawesome.com/icons/trash?style=solid
+edit = https://fontawesome.com/icons/edit?style=solid
+-->
