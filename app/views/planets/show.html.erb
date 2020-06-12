@@ -24,18 +24,24 @@
     <h3><%= "You can book this planet from #{@years}" %></h3>
     <hr>
 
-    <%= link_to, planets_path do %>
-    <% image_tag ""%>
-    <% %>
-    <% if @planet.owner != current_user && user_signed_in?%>
-      <%= link_to "Book this planet", new_planet_booking_path(@planet), class: 'btn btn-secondary' %>
+    <%= link_to planets_path do %>
+      <%= image_tag "home.svg",class: 'abababa' %>
     <% end %>
-  </div>  
+    <% if @planet.owner != current_user && user_signed_in?%>
+      <%= link_to new_planet_booking_path(@planet) do %>
+      <%= image_tag "space.svg",class: 'abababa' %>
+    <% end %>
+  </div>      
+    <% end %>
+    <% if @planet.owner == current_user%>
+    <%= link_to   edit_planet_path(@planet)do %>
+        <%= image_tag "edit.svg" , class: 'abababa' %>
+<% end %>
+
+      <%= link_to   planet_path(@planet), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= image_tag "trash.svg" , class: 'abababa2' %>
+      <% end %>
+<% end %>
 </div>
 
-<!-- 
-space = https://fontawesome.com/icons/space-shuttle?style=solid
-home = https://fontawesome.com/icons/home?style=solid
-trash = https://fontawesome.com/icons/trash?style=solid
-edit = https://fontawesome.com/icons/edit?style=solid
--->
+ 
