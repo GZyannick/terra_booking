@@ -17,27 +17,27 @@ superman = User.create(username: "Superman", email: "clark@terre.tr", password: 
     )
 end
 
-saturne = Planet.new(owner: alpha, name: "saturne", price: 3750, description: "C'est loin, mais c'est beau !")
+saturne = Planet.new(owner: alpha, name: "saturne", price: 375, description: "C'est loin, mais c'est beau !")
 url = URI.open("https://www.solarsystemscope.com/images/textures/full/2k_saturn.jpg")
 saturne.photo.attach(io: url, filename: "saturne.jpg" )
 saturne.save
 
-mars = Planet.create(owner: spock, name: "mars", price: 2130,description: "Vue imprenable sur la terre")
+mars = Planet.create(owner: spock, name: "mars", price: 213,description: "Vue imprenable sur la terre")
 url = URI.open("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mars_texture.jpg")
 mars.photo.attach(io: url, filename: "mars.jpg" )
 mars.save
 
-venus = Planet.create(owner: spock, name: "venus", price: 5700,description: "Une planète tout en charme")
+venus = Planet.create(owner: spock, name: "venus", price: 570,description: "Une planète tout en charme")
 url = URI.open("https://nasa3d.arc.nasa.gov/shared_assets/images/ven0aaa2/ven0aaa2-copy-428-321.jpg")
 venus.photo.attach(io: url, filename: "venus.jpg" )
 venus.save
 
-pluton = Planet.create(owner: alpha, name: "pluton", price: 8250, description: "C'est pluton beau !")
+pluton = Planet.create(owner: alpha, name: "pluton", price: 825, description: "C'est pluton beau !")
 url = URI.open("https://pre00.deviantart.net/4677/th/pre/f/2015/314/4/e/pluto_map__2015_nov_10__by_snowfall_the_cat-d918tlb.png")
 pluton.photo.attach(io: url, filename: "pluton.jpg" )
 pluton.save
 
-neptune = Planet.create(owner: alpha, name: "neptune", price: 4000, description: "J'ai un bon ami neptunien")
+neptune = Planet.create(owner: alpha, name: "neptune", price: 400, description: "J'ai un bon ami neptunien")
 url = URI.open("https://img00.deviantart.net/f068/i/2017/165/b/c/neptune_texture_map_by_jcpag2010-dbcjcv5.png")
 neptune.photo.attach(io: url, filename: "neptune.jpg" )
 neptune.save
