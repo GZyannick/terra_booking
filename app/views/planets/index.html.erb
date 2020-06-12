@@ -35,16 +35,7 @@
     <div class='solar_systm'>
     <div class="planet <%="#{planet.name}"%>">
     <div class="<%="planet_description #{planet.name}" %>">
-        <h1><%= "#{planet.name}" %></h1>
-      <div class="show-planet">
-      <div class="edit-delete">
-        <%= link_to "Show",  planet_path(planet), class: "new-green-btn"%>
-              <%  if current_user && current_user.id == planet.owner.id %>
-            <%= link_to "Edit",  edit_planet_path(planet), class: "new-green-btn" %>
-            <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" }, class: "new-green-btn"%>
-            <% end %>
-      </div>
-      </div>
+        <h1><%= link_to "#{planet.name}",  planet_path(planet), class: 'white-btn'%></h1>
       <div class="planet_div"></div>
       </div>
     </div>
