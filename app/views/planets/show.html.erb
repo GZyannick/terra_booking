@@ -1,21 +1,31 @@
 
-  <h1><%= @planet.name %></h1>
-  <%= link_to "Back to home", planets_path %>
+<div class="stars"></div>
+
+<div class="planetoon"> 
+  <div class="wrap">
+     <div style="background-image: url('<%= img_planet(@planet) %>'); animation: translateBackground 40s infinite linear; width:300px; height:300px; position:absolute; border-radius:50%;" ></div>
+     <div class="clouds"></div>   
+  </div>
+  <div class="mask"></div>
+</div>
+
+
+<div class="content-show">
+  <div class="titree">
+    <h1><%= @planet.name %> </h1>
+    <h3><%= @planet.description %></h3>
+  </div>
+
+  <div class="content-bas">
+    <% @bookings.each do |booking| %> 
+      <%= booking.duration %> year(s)
+    <% end %>
+    <hr>
+
+    <%= link_to "Back to home", planets_path, class: 'btn btn-secondary' %>
   
-    <%= image_tag(img_planet(@planet), class: "photo-basic") %>
-     <h3><%= @planet.description %></h3>
-     <ul>
-          <% @bookings.each do |booking| %>
-           <li>
-           <%= booking.duration %> year(s)
-                
-           </li>   
-              
-                
-                
-          <% end %>
-          <hr>
-        <% if @planet.owner != current_user && user_signed_in?%>
-        <%= link_to "Book this planet", new_planet_booking_path(@planet) %>
-      <% end %>
-     </ul> 
+    <% if @planet.owner != current_user && user_signed_in?%>
+      <%= link_to "Book this planet", new_planet_booking_path(@planet), class: 'btn btn-secondary' %>
+    <% end %>
+  </div>  
+</div>
