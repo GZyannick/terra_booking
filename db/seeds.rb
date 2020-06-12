@@ -1,8 +1,6 @@
 Planet.destroy_all
 User.destroy_all
 
-
-
 alpha = User.create(username: "AlPha", email: "planet@saturne.st", password: "azerty")
 
 blob = User.create(username: "BlobloBg", email: "planet@mars.ms", password: "azerty")
@@ -19,10 +17,30 @@ superman = User.create(username: "Superman", email: "clark@terre.tr", password: 
     )
 end
 
-saturne = Planet.create(owner: alpha, name: "saturne", price: 1, description: "planete non tellurique , belle vue sur la terre")
+saturne = Planet.new(owner: alpha, name: "saturne", price: 1, description: "planete non tellurique , belle vue sur la terre")
+url = URI.open("https://www.solarsystemscope.com/images/textures/full/2k_saturn.jpg")
+saturne.photo.attach(io: url, filename: "saturne.jpg" )
+saturne.save
+
 mars = Planet.create(owner: spock, name: "mars", price: 1,description: "belle vue sur saturne")
-vulcain = Planet.create(owner: spock, name: "vulcain", price: 1,description: "pas de belle vue , venez comme vous etes")
-alpha = Planet.create(owner: alpha, name: "cucu", price: 1, description: "planete non tellurique , belle vue sur la terre")
+url = URI.open("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mars_texture.jpg")
+mars.photo.attach(io: url, filename: "mars.jpg" )
+mars.save
+
+venus = Planet.create(owner: spock, name: "venus", price: 1,description: "pas de belle vue , venez comme vous etes")
+url = URI.open("https://nasa3d.arc.nasa.gov/shared_assets/images/ven0aaa2/ven0aaa2-copy-428-321.jpg")
+venus.photo.attach(io: url, filename: "venus.jpg" )
+venus.save
+
+pluton = Planet.create(owner: alpha, name: "pluton", price: 1, description: "C'est pluton beau!")
+url = URI.open("https://pre00.deviantart.net/4677/th/pre/f/2015/314/4/e/pluto_map__2015_nov_10__by_snowfall_the_cat-d918tlb.png")
+pluton.photo.attach(io: url, filename: "pluton.jpg" )
+pluton.save
+
+neptune = Planet.create(owner: alpha, name: "neptune", price: 1, description: "on est loin, loin, loin.........")
+url = URI.open("https://img00.deviantart.net/f068/i/2017/165/b/c/neptune_texture_map_by_jcpag2010-dbcjcv5.png")
+neptune.photo.attach(io: url, filename: "neptune.jpg" )
+neptune.save
 
 #5.times do
 #  Planet.create(
@@ -49,6 +67,6 @@ alpha = Planet.create(owner: alpha, name: "cucu", price: 1, description: "planet
 #end
 #
 
-booking1 = Booking.create!(duration: 1, user: blob, planet: vulcain)
+booking1 = Booking.create!(duration: 1, user: blob, planet: venus)
 booking2 = Booking.create!(duration: 7, user: spock, planet: saturne)
 
