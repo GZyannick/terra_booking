@@ -307,6 +307,19 @@ $traverseTriggers: "";
 .planet{
   background: black;
 }
+.planet .clouds{
+    background:linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%,rgba(0,0,0,1)100%), url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
+    background-size: cover;
+    width:70rem;
+    height:50rem;
+    left: -300px;
+    top: -20px;
+    position:absolute;
+    border-radius:50%;
+    animation: translateBackground 30s infinite linear;
+    opacity: 0.4;
+  }
+
 
 .planet_description { 
     p::after{
@@ -314,15 +327,7 @@ $traverseTriggers: "";
         color: white;
         z-index: 50;
     }
-    .planet_div {
-    position: absolute;
-    width: 70rem;
-    height: 60rem;
-    left: -300px;
-    top: -20px;
-    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%,rgba(0,0,0,1)100%) , url("https://www.solarsystemscope.com/images/textures/full/2k_makemake_fictional.jpg");
-    border-radius: 100%;
-    }
+
     }
     .show-planet{
         position: absolute;
@@ -355,4 +360,5 @@ $traverseTriggers: "";
         color: #538a7a;
         text-decoration: none;
     }
+  }
 }
