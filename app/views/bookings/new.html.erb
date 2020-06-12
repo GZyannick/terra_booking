@@ -1,1 +1,15 @@
-<h1>Book a planet</h1>
+
+<div class="container" style="padding-top: 20vh;">
+
+<h1 style="color: white; font-weight: bold;">Book this planet </h1>
+<div class="card">
+<%= simple_form_for [@planet, @booking] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs" style= "margin-top: 0vh">
+    <%= f.input :duration %>
+    <%= f.button :submit, "Validate", class: 'btn btn-secondary' %>
+  </div>
+<% end %>
+</div>
+</div>
