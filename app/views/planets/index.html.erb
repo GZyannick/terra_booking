@@ -35,16 +35,8 @@
     <div class='solar_systm'>
     <div class="planet <%="#{planet.name}"%>">
     <div class="<%="planet_description #{planet.name}" %>">
-        <h1><%= "#{planet.name}" %></h1>
-      <div class="show-planet">
-      <div class="edit-delete">
-        <%= link_to "Show",  planet_path(planet), class: "new-green-btn"%>
-              <%  if current_user && current_user.id == planet.owner.id %>
-            <%= link_to "Edit",  edit_planet_path(planet), class: "new-green-btn" %>
-            <%= link_to "Delete",  planet_path(planet), method: :delete, data: { confirm: "Are you sure, space warrior?" }, class: "new-green-btn"%>
+        <h1><%= link_to "#{planet.name}",  planet_path(planet), class: 'white-btn'%></h1>
             <% end %>
-      </div>
-      </div>
       <div style="background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%,rgba(0,0,0,1)100%) , url('<%= img_planet(planet) %>'); position: absolute; width: 70rem; height: 50rem; left: -300px; top: -20px; border-radius: 100%; animation: translateBackground 45s infinite linear" ></div>
     <div class="clouds"></div>
       </div>
